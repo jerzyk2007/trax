@@ -68,6 +68,7 @@
 
 .hero__search-btn {
   background: var(--primary-blue);
+  padding: 10px 0;
   color: white;
   border: none;
   border-radius: 6px;
@@ -85,5 +86,8 @@
   }
   .hero__search-box {
     grid-template-columns: 1fr;
+  }
+  .hero__search-btn {
+    padding: 6px 0;
   }
 }
