@@ -91,15 +91,36 @@
   cursor: pointer;
 }
 
-.logo-trax {
-  color: #000;
+.trax-logo {
+  display: flex;
+  align-items: center;
 }
 
-.logo-auto {
+.trax-logo a {
+  display: block;
+  line-height: 0; /* Usuwa zbędne marginesy pod obrazkiem */
+}
+
+.trax-logo-img {
+  /* Dopasuj wysokość do oryginału */
+  height: 55px;
+  width: auto; /* Zachowuje proporcje */
+  display: block;
+  transition: transform 0.2s ease-in-out;
+}
+
+.trax-logo-img:hover {
+  transform: scale(1.02); /* Delikatny efekt po najechaniu */
+}
+/* .logo-trax {
+  color: #000;
+} */
+
+/* .logo-auto {
   color: var(--trax-grey);
   font-weight: 400;
   margin-left: 2px;
-}
+} */
 
 /* Menu Stylizacja */
 .trax-menu {
@@ -178,5 +199,8 @@
   .nav-actions {
     display: flex;
     align-items: center;
+  }
+  .trax-logo-img {
+    height: 40px; /* Mniejsze logo na telefonach */
   }
 }
