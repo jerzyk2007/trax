@@ -13,9 +13,9 @@ function App() {
       {/* <BrowserRouter> */}
       <HashRouter>
         <Navbar />
-        <Home />
+        {/* <Home /> */}
         <Routes>
-          {/* <Route path="/" element={<Home />} /> */}
+          <Route path="/" element={<Home />} />
           <Route path="/osobowe" element={<UsedCars />} />
           <Route path="/locations" element={<Locations />} />
         </Routes>
