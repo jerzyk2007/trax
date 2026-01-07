@@ -1,38 +1,40 @@
-/* Definicja kolorów lokalnie, by pasowały 1:1 */
+/* --- ZMIENNE PROJEKTOWE --- */
 :root {
-  --trax-blue: #004a99; /* Ciemniejszy niebieski Opla */
-  --trax-light-blue: #0072bc;
-  --trax-dark: #333333;
-  --trax-grey: #666666;
-  --trax-light-grey: #f2f2f2;
-  --trax-border: #e5e5e5;
+  --trax-blue: #004a99; /* Oficjalny kolor Trax / Opel */
+  --trax-dark: #1a1a1a; /* Głęboka czerń tekstu */
+  --trax-grey: #666666; /* Napisy pomocnicze */
+  --trax-light-grey: #f5f5f5; /* Tło top-baru */
+  --trax-border: #eeeeee; /* Delikatne linie podziału */
+  --trax-white: #ffffff;
+  --glass-bg: rgba(255, 255, 255, 0.9); /* Do menu mobilnego */
 }
 
+/* --- KONSTRUKCJA GŁÓWNA --- */
 .trax-header {
   width: 100%;
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #fff;
-  font-family: Arial, sans-serif; /* Oryginał używa prostych fontów sans-serif */
+  background: var(--trax-white);
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-/* TOP BAR */
+.trax-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px; /* Desktopowy margines */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* --- TOP BAR (Pasek informacyjny) --- */
 .trax-top-bar {
   background-color: var(--trax-light-grey);
   border-bottom: 1px solid var(--trax-border);
   padding: 6px 0;
   font-size: 11px;
   color: var(--trax-grey);
-}
-
-.trax-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .trax-top-left {
@@ -42,6 +44,8 @@
 
 .social-icon {
   color: var(--trax-grey);
+  display: flex;
+  align-items: center;
   transition: color 0.2s;
 }
 
@@ -68,139 +72,277 @@
   color: #000;
 }
 
-/* MAIN NAV */
+/* --- NAWIGACJA GŁÓWNA --- */
 .trax-main-nav {
-  padding: 15px 0;
-  background: #fff;
-  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  padding: 10px 0;
+  background: var(--trax-white);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
 .main-nav-wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 90%;
 }
 
-/* Logo Stylizacja */
-.trax-logo {
-  display: flex;
-  align-items: center;
-  font-size: 26px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  cursor: pointer;
-}
-
-.trax-logo {
-  display: flex;
-  align-items: center;
-}
-
+/* --- LOGO --- */
 .trax-logo a {
   display: block;
-  line-height: 0; /* Usuwa zbędne marginesy pod obrazkiem */
+  line-height: 0;
 }
 
 .trax-logo-img {
-  /* Dopasuj wysokość do oryginału */
-  height: 55px;
-  width: auto; /* Zachowuje proporcje */
+  height: 55px; /* Wysokość jak na oryginale */
+  width: auto;
   display: block;
-  transition: transform 0.2s ease-in-out;
 }
 
-.trax-logo-img:hover {
-  transform: scale(1.02); /* Delikatny efekt po najechaniu */
-}
-/* .logo-trax {
-  color: #000;
-} */
-
-/* .logo-auto {
-  color: var(--trax-grey);
-  font-weight: 400;
-  margin-left: 2px;
-} */
-
-/* Menu Stylizacja */
+/* --- MENU DESKTOP --- */
 .trax-menu {
   display: flex;
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 18px;
+  gap: 20px;
 }
 
-.trax-menu li {
+.trax-menu li a,
+.trax-menu li span {
   font-size: 12px;
   font-weight: 700;
   color: var(--trax-dark);
+  text-decoration: none;
+  text-transform: uppercase;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 4px;
-  transition: color 0.2s;
+  padding: 15px 0;
 }
 
-.trax-menu li:hover {
+.trax-menu li:hover > a,
+.trax-menu li:hover > span {
   color: var(--trax-blue);
 }
 
-/* Button Serwis Online */
+/* --- DROPDOWN (Menu rozwijane Desktop) --- */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--trax-white);
+  min-width: 180px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  border-top: 3px solid var(--trax-blue);
+  list-style: none;
+  padding: 10px 0;
+  z-index: 1001;
+}
+
+.dropdown-menu li {
+  width: 100%;
+}
+
+.dropdown-menu li a {
+  padding: 10px 20px;
+  text-transform: none;
+  font-weight: 600;
+}
+
+.dropdown-menu li a:hover {
+  background: var(--trax-light-grey);
+}
+
+/* Pokaż dropdown na hover (Desktop) */
+@media (min-width: 1025px) {
+  .has-dropdown:hover .dropdown-menu {
+    display: block;
+  }
+}
+
+/* --- PRZYCISKI AKCJI --- */
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .btn-serwis-online {
   background-color: var(--trax-blue);
   color: #fff;
   border: none;
-  padding: 8px 18px;
-  font-size: 12px;
+  padding: 9px 18px;
+  font-size: 11px;
   font-weight: 700;
   border-radius: 4px;
+  text-transform: uppercase;
   cursor: pointer;
-  transition: background 0.3s;
 }
 
 .btn-serwis-online span {
   font-weight: 400;
 }
 
-.btn-serwis-online:hover {
-  background-color: #003366;
-}
-
+/* --- NOWOCZESNE MENU MOBILNE (1024px i mniej) --- */
 .mobile-toggle {
   display: none;
   background: none;
   border: none;
+  color: var(--trax-dark);
   cursor: pointer;
+  padding: 5px 0 5px 5px; /* Padding ułatwia klikanie przy krawędzi */
 }
 
-/* Media Queries dla responsywności jak na oryginale */
+.mobile-menu-footer {
+  display: none;
+}
+
 @media (max-width: 1024px) {
-  .trax-menu {
-    gap: 10px;
+  /* Margines 10px od krawędzi ekranu */
+  .trax-container {
+    padding: 0 10px;
   }
+
+  .mobile-toggle {
+    display: block;
+    z-index: 2001; /* Powyżej panelu menu */
+  }
+
+  /* PANEL MENU MOBILNEGO */
+  .trax-menu {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Ukryte */
+    width: 85%;
+    max-width: 340px;
+    height: 100vh;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px); /* Efekt rozmytego szkła */
+    -webkit-backdrop-filter: blur(15px);
+    flex-direction: column;
+    padding: 90px 25px 30px 25px;
+    gap: 5px;
+    transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    box-shadow: -15px 0 35px rgba(0, 0, 0, 0.1);
+    border-radius: 30px 0 0 30px; /* Nowoczesne zaokrąglenie */
+    z-index: 2000;
+    overflow-y: auto;
+  }
+
+  .trax-menu.is-active {
+    right: 0; /* Wysunięcie */
+  }
+
+  .trax-menu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .trax-menu li a,
+  .trax-menu li span {
+    font-size: 17px;
+    font-weight: 800;
+    padding: 18px 0;
+    justify-content: space-between;
+    text-transform: none; /* Większe napisy lepiej wyglądają bez Capsa */
+  }
+
+  /* Dropdown wewnątrz mobilnego menu */
+  .dropdown-menu {
+    display: block;
+    position: static;
+    background: rgba(0, 74, 153, 0.05);
+    box-shadow: none;
+    border: none;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    padding: 5px 0;
+  }
+
+  .dropdown-menu li a {
+    padding: 12px 20px;
+    color: var(--trax-blue);
+    font-size: 14px;
+  }
+
+  /* DODATKI NA DOLE MENU */
+  .mobile-menu-footer {
+    display: block; /* Pokazujemy tylko w widoku mobilnym */
+    margin-top: auto; /* Pcha stopkę na sam dół wysuwanego menu */
+    padding-top: 30px;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+  }
+
+  .mobile-contact-box p {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+    color: var(--trax-grey);
+    margin: 12px 0;
+    font-weight: 500;
+  }
+
+  .mobile-socials {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+  }
+
+  .mobile-socials a {
+    width: 42px;
+    height: 42px;
+    background: var(--trax-blue);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: transform 0.2s;
+  }
+
+  /* Ukrywanie zbędnych elementów */
   .hide-tablet {
     display: none !important;
   }
 }
 
+/* --- DOPASOWANIE DLA TELEFONÓW (768px i mniej) --- */
 @media (max-width: 768px) {
-  .trax-menu,
-  .hide-mobile {
-    display: none;
-  }
-  .mobile-toggle {
-    display: block;
-    margin-left: 15px;
-  }
-  .trax-logo {
-    font-size: 22px;
-  }
-  .nav-actions {
-    display: flex;
-    align-items: center;
-  }
   .trax-logo-img {
-    height: 40px; /* Mniejsze logo na telefonach */
+    height: 42px; /* Mniejsze logo */
+  }
+
+  .hide-mobile {
+    display: none !important;
+  }
+
+  .btn-serwis-online {
+    padding: 7px 14px;
+    font-size: 10px;
+  }
+}
+
+/* --- OVERLAY (Przyciemnienie tła) --- */
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(4px);
+  z-index: 1999;
+  animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
