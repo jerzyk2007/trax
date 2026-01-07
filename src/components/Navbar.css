@@ -1,0 +1,182 @@
+/* Definicja kolorów lokalnie, by pasowały 1:1 */
+:root {
+  --trax-blue: #004a99; /* Ciemniejszy niebieski Opla */
+  --trax-light-blue: #0072bc;
+  --trax-dark: #333333;
+  --trax-grey: #666666;
+  --trax-light-grey: #f2f2f2;
+  --trax-border: #e5e5e5;
+}
+
+.trax-header {
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #fff;
+  font-family: Arial, sans-serif; /* Oryginał używa prostych fontów sans-serif */
+}
+
+/* TOP BAR */
+.trax-top-bar {
+  background-color: var(--trax-light-grey);
+  border-bottom: 1px solid var(--trax-border);
+  padding: 6px 0;
+  font-size: 11px;
+  color: var(--trax-grey);
+}
+
+.trax-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trax-top-left {
+  display: flex;
+  gap: 15px;
+}
+
+.social-icon {
+  color: var(--trax-grey);
+  transition: color 0.2s;
+}
+
+.social-icon:hover {
+  color: var(--trax-blue);
+}
+
+.trax-top-right {
+  display: flex;
+  gap: 20px;
+}
+
+.top-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.blue-icon {
+  color: var(--trax-blue);
+}
+
+.top-item strong {
+  color: #000;
+}
+
+/* MAIN NAV */
+.trax-main-nav {
+  padding: 15px 0;
+  background: #fff;
+  box-shadow: 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+}
+
+.main-nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Stylizacja */
+.trax-logo {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  cursor: pointer;
+}
+
+.logo-trax {
+  color: #000;
+}
+
+.logo-auto {
+  color: var(--trax-grey);
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+/* Menu Stylizacja */
+.trax-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 18px;
+}
+
+.trax-menu li {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--trax-dark);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  transition: color 0.2s;
+}
+
+.trax-menu li:hover {
+  color: var(--trax-blue);
+}
+
+/* Button Serwis Online */
+.btn-serwis-online {
+  background-color: var(--trax-blue);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-serwis-online span {
+  font-weight: 400;
+}
+
+.btn-serwis-online:hover {
+  background-color: #003366;
+}
+
+.mobile-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* Media Queries dla responsywności jak na oryginale */
+@media (max-width: 1024px) {
+  .trax-menu {
+    gap: 10px;
+  }
+  .hide-tablet {
+    display: none !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .trax-menu,
+  .hide-mobile {
+    display: none;
+  }
+  .mobile-toggle {
+    display: block;
+    margin-left: 15px;
+  }
+  .trax-logo {
+    font-size: 22px;
+  }
+  .nav-actions {
+    display: flex;
+    align-items: center;
+  }
+}
