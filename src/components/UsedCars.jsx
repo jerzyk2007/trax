@@ -1,35 +1,35 @@
 import React from "react";
 import { Search } from "lucide-react";
-import "./Hero.css";
+import "./UsedCars.css";
 
-const Hero = () => {
+const UsedCars = () => {
   return (
-    <section className="hero">
-      <div className="hero__overlay"></div>
-      <div className="container hero__content">
-        <h1 className="hero__title">
+    <section className="used_cars">
+      <div className="used_cars__overlay"></div>
+      <div className="container used_cars__content">
+        <h1 className="used_cars__title">
           ZNAJDŹ SWOJE <br />
-          <span className="hero__title--accent">IDEALNE</span> AUTO
+          <span className="used_cars__title--accent">IDEALNE</span> AUTO
         </h1>
 
-        <div className="hero__search-box">
-          <div className="hero__search-field">
+        <div className="used_cars__search-box">
+          <div className="used_cars__search-field">
             <label>Marka</label>
             <select>
               <option>Dowolna Marka</option>
             </select>
           </div>
-          <div className="hero__search-field">
+          <div className="used_cars__search-field">
             <label>Model</label>
             <select>
               <option>Dowolny Model</option>
             </select>
           </div>
-          <div className="hero__search-field">
+          <div className="used_cars__search-field">
             <label>Cena do</label>
             <input type="number" placeholder="Np. 50 000" />
           </div>
-          <button className="hero__search-btn">
+          <button className="used_cars__search-btn">
             <Search size={20} /> SZUKAJ
           </button>
         </div>
@@ -38,4 +38,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default UsedCars;

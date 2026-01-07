@@ -1,0 +1,138 @@
+.cookie-banner {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--trax-border);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  border-radius: 16px;
+  z-index: 9999;
+  padding: 20px;
+  animation: slideUp 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.cookie-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  position: relative;
+}
+
+.cookie-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  flex: 1;
+}
+
+.cookie-icon-wrapper {
+  background: var(--accent-soft);
+  padding: 10px;
+  border-radius: 12px;
+  color: var(--trax-blue);
+}
+
+.cookie-text h4 {
+  font-size: 16px;
+  color: var(--trax-dark);
+  margin-bottom: 5px;
+}
+
+.cookie-text p {
+  font-size: 13px;
+  color: var(--trax-grey);
+  line-height: 1.5;
+}
+
+.cookie-text a {
+  color: var(--trax-blue);
+  text-decoration: underline;
+  font-weight: 600;
+}
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-cookie-accept,
+.btn-cookie-decline {
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.btn-cookie-accept {
+  background: var(--trax-blue);
+  color: white;
+  border: none;
+}
+
+.btn-cookie-accept:hover {
+  background: #003d7a;
+  transform: translateY(-2px);
+}
+
+.btn-cookie-decline {
+  background: transparent;
+  color: var(--trax-grey);
+  border: 1px solid var(--trax-border);
+}
+
+.btn-cookie-decline:hover {
+  background: var(--trax-light-grey);
+}
+
+.cookie-close {
+  background: transparent;
+  border: none;
+  color: var(--trax-grey);
+  cursor: pointer;
+  padding: 5px;
+  margin-left: 10px;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Responsywność */
+@media (max-width: 992px) {
+  .cookie-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cookie-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .cookie-actions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .cookie-banner {
+    bottom: 10px;
+    left: 10px;
+    right: 10px;
+  }
+}

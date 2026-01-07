@@ -1,5 +1,10 @@
 export const menuItems = [
   {
+    title: "Start",
+    path: "/",
+    isHome: true, // Flaga do rozpoznania ikony domku
+  },
+  {
     title: "OFERTA",
     submenu: [
       { label: "Osobowe", path: "/osobowe" },
@@ -9,12 +14,12 @@ export const menuItems = [
   },
   {
     title: "ODKUP",
-    path: "/odkup",
+    path: "/",
   },
   {
     title: "SERWIS MECHANICZNY",
 
-    path: "/serwis",
+    path: "/",
   },
   {
     title: "SERWIS BLACHARSKI",
@@ -23,10 +28,10 @@ export const menuItems = [
       { label: "Wróbel", path: "/" },
       { label: "Pioter", path: "/" },
     ],
-    path: "/serwis",
+    path: "/",
   },
   {
     title: "KONTAKT",
-    path: "/kontakt",
+    path: "/",
   },
 ];

@@ -1,0 +1,179 @@
+.home-container {
+  width: 100%;
+}
+
+/* HERO SECTION */
+.home-hero {
+  background: linear-gradient(rgba(0, 20, 40, 0.7), rgba(0, 20, 40, 0.7)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&q=80&w=1920"); /* Przykładowe tło */
+  background-size: cover;
+  background-position: center;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-content h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto 30px;
+  line-height: 1.6;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 28px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: var(--trax-blue);
+  color: white;
+}
+
+.btn-secondary {
+  background: white;
+  color: var(--trax-dark);
+}
+
+.btn-primary:hover {
+  background: #003d7a;
+  transform: translateY(-3px);
+}
+
+/* FEATURES SECTION */
+.home-features {
+  padding: 80px 20px;
+  background: white;
+}
+
+.features-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.feature-card {
+  text-align: center;
+  padding: 30px;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+  background: var(--trax-light-grey);
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+}
+
+.feature-icon {
+  color: var(--trax-blue);
+  margin-bottom: 20px;
+}
+
+.feature-card h3 {
+  margin-bottom: 15px;
+  font-size: 1.2rem;
+  color: var(--trax-dark);
+}
+
+.feature-card p {
+  color: var(--trax-grey);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* ABOUT SECTION */
+.home-about {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 80px 20px;
+  display: flex;
+  gap: 50px;
+  align-items: center;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 2.2rem;
+  margin-bottom: 25px;
+  color: var(--trax-dark);
+}
+
+.about-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--trax-grey);
+  margin-bottom: 25px;
+}
+
+.about-list {
+  list-style: none;
+}
+
+.about-list li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  color: var(--trax-dark);
+}
+
+.about-image {
+  flex: 1;
+  height: 400px;
+}
+
+.image-placeholder {
+  width: 100%;
+  height: 100%;
+  background: #ddd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  font-weight: 700;
+  color: #999;
+}
+
+@media (max-width: 992px) {
+  .home-hero {
+    height: 100%;
+    padding: 10px 0;
+  }
+  .home-about {
+    flex-direction: column;
+    text-align: center;
+  }
+  .about-list li {
+    justify-content: center;
+  }
+}
