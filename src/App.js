@@ -10,8 +10,8 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      {/* <BrowserRouter> */}
-      <HashRouter>
+      <BrowserRouter basename="/trax">
+        {/* <HashRouter> */}
         <Navbar />
         {/* <Home /> */}
         <Routes>
@@ -20,8 +20,8 @@ function App() {
           <Route path="/locations" element={<Locations />} />
         </Routes>
         <CookieBanner />
-      </HashRouter>
-      {/* </BrowserRouter> */}
+        {/* </HashRouter> */}
+      </BrowserRouter>
     </div>
   );
 }
